@@ -1,5 +1,4 @@
-# EncDec
-Encode / Decode String
+# Encode / Decode String
 
 Példa
 
