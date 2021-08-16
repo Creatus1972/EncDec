@@ -1,0 +1,13 @@
+<?php
+  $string = "teszt";
+  
+  // Titkosítás
+  $encodestring = encode($string);
+  // Megjelenítés
+  echo $encodestring;
+  
+  // Dekódolás
+  $decodestring = decode($encodestring);
+  // Megjelenítés
+  echo = $decodestring;
+?>
