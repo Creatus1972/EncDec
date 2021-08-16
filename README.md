@@ -9,3 +9,5 @@ $encodestring = encode($string);
 
 $decodestring = decode($encodestring);
 // echo $decodestring;
+
+FONTOS: a $key változóknak azonosnak kell lenniük!
