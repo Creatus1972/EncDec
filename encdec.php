@@ -1,10 +1,15 @@
 <?php
+// $key = sha1('EnCRyprfawtegbavgartrestgt4468hbhrtz3hbT10nDeCRypT!OnK#Y!RiSRNn');
+// define("KEY1", sha1('EnCRyprfawtegbavgartrestgt4468hbhrtz3hbT10nDeCRypT!OnK#Y!RiSRNn'));
+// define("KEY2", "EnCRyprfawtegbavgartrestgt4468hbhrtz3hbT10nDeCRypT!OnK#Y!RiSRNn");
 // Encode String
 function encode($value) {
     if (!$value) {
         return false;
     }
     $key = sha1('EnCRyprfawtegbavgartrestgt4468hbhrtz3hbT10nDeCRypT!OnK#Y!RiSRNn');
+    // vagy $key = KEY1;
+    // vagy $key = sha1(KEY2);
     $strLen = strlen($value);
     $keyLen = strlen($key);
     $j = 0;
@@ -26,6 +31,8 @@ function decode($value) {
         return false;
     }
     $key = sha1('EnCRyprfawtegbavgartrestgt4468hbhrtz3hbT10nDeCRypT!OnK#Y!RiSRNn');
+    // vagy $key = KEY1;
+    // vagy $key = sha1(KEY2);
     $strLen = strlen($value);
     $keyLen = strlen($key);
     $j = 0;
