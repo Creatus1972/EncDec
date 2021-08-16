@@ -1,6 +1,6 @@
 # Encode / Decode String
 
-Példa
+Példa:
 
 $string = "Teszt";
 
