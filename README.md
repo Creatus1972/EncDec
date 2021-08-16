@@ -6,7 +6,7 @@ Példa
 $string = "Teszt";
 
 $encodestring = encode($string);
-echo $encodestring;
+// echo $encodestring;
 
 $decodestring = decode($encodestring);
-echo $decodestring;
+// echo $decodestring;
