@@ -66,5 +66,17 @@ function decryptPass($password) {
     $decrypted = openssl_decrypt(base64_decode($password), $method, $sSalt, OPENSSL_RAW_DATA, $iv);
     return $decrypted;
 }
+// Egyirányú titkosítás
+function encrypt($password) {
+    $secret = "";
+    for ($i = 1; $i <= 45; $i++) {
+        $secret .= "password(";
+    }
+    $secret .= "'$password'";
+    for ($i = 1; $i <= 45; $i++) {
+        $secret .= ")";
+    }
+    return $secret;
+}
 ?>
 
