@@ -66,7 +66,7 @@ function decryptPass($password) {
     $decrypted = openssl_decrypt(base64_decode($password), $method, $sSalt, OPENSSL_RAW_DATA, $iv);
     return $decrypted;
 }
-// Egyirányú titkosítás
+// Egyirányú titkosítás - 1
 function encrypt($password) {
     $secret = "";
     for ($i = 1; $i <= 45; $i++) {
@@ -77,6 +77,16 @@ function encrypt($password) {
         $secret .= ")";
     }
     return $secret;
+}
+// Egyirányú titkosítás - 2
+// See the password_hash() example to see where this came from.
+$password = 'Password';
+$hash = password_hash($password, PASSWORD_DEFAULT);
+if (password_verify($password, $hash)) {
+   echo 'Sikeres bejelentkezés!';
+    /* PHP kód további műveletekhez */
+} else {
+   echo 'Sikertelen bejelentkezés.';
 }
 ?>
 
