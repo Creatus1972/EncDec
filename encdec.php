@@ -87,7 +87,7 @@ function hashpass($password) {
 $hash = password_hash($password, PASSWORD_DEFAULT);
 if (password_verify($password, $hash)) {
    echo 'Sikeres bejelentkezés!';
-    /* PHP kód további műveletekhez */
+   // PHP kód további műveletekhez
 } else {
    echo 'Sikertelen bejelentkezés.';
 } */
