@@ -79,13 +79,17 @@ function encrypt($password) {
     return $secret;
 }
 // Egyirányú titkosítás - 2
-$password = 'Password';
+function hashpass($password) {
+    $hash = password_hash($password, PASSWORD_DEFAULT);
+    return $hash;
+}
+/* $password = 'Password';
 $hash = password_hash($password, PASSWORD_DEFAULT);
 if (password_verify($password, $hash)) {
    echo 'Sikeres bejelentkezés!';
     /* PHP kód további műveletekhez */
 } else {
    echo 'Sikertelen bejelentkezés.';
-}
+} */
 ?>
 
