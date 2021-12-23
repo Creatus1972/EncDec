@@ -2,7 +2,7 @@
 // $key = sha1('EnCRyprfawtegbavgartrestgt4468hbhrtz3hbT10nDeCRypT!OnK#Y!RiSRNn');
 // define("KEY1", sha1('EnCRyprfawtegbavgartrestgt4468hbhrtz3hbT10nDeCRypT!OnK#Y!RiSRNn'));
 // define("KEY2", "EnCRyprfawtegbavgartrestgt4468hbhrtz3hbT10nDeCRypT!OnK#Y!RiSRNn");
-// Encode String
+// Encode String - 1
 function encode($value) {
     if (!$value) {
         return false;
@@ -25,7 +25,7 @@ function encode($value) {
     }
     return $encrypttext;
 }
-// Decode String
+// Decode String - 1
 function decode($value) {
     if (!$value) {
         return false;
@@ -47,6 +47,28 @@ function decode($value) {
         $decrypttext .= chr($ordStr - $ordKey);
     }
     return $decrypttext;
+}
+// Encode String - 2
+function encryptPass($password) {
+    $sSalt = 'Titkosítási kulcs';
+    $sSalt = substr(hash('sha256', $sSalt, true), 0, 32);
+    $method = 'aes-256-cbc';
+
+    $iv = chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0);
+
+    $encrypted = base64_encode(openssl_encrypt($password, $method, $sSalt, OPENSSL_RAW_DATA, $iv));
+    return $encrypted;
+}
+// Decode String - 2
+function decryptPass($password) {
+    $sSalt = 'Titkosítási kulcs';
+    $sSalt = substr(hash('sha256', $sSalt, true), 0, 32);
+    $method = 'aes-256-cbc';
+
+    $iv = chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0);
+
+    $decrypted = openssl_decrypt(base64_decode($password), $method, $sSalt, OPENSSL_RAW_DATA, $iv);
+    return $decrypted;
 }
 ?>
 
