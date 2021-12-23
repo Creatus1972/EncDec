@@ -79,7 +79,6 @@ function encrypt($password) {
     return $secret;
 }
 // Egyirányú titkosítás - 2
-// See the password_hash() example to see where this came from.
 $password = 'Password';
 $hash = password_hash($password, PASSWORD_DEFAULT);
 if (password_verify($password, $hash)) {
